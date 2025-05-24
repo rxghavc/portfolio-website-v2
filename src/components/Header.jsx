@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FiSun, FiMenu } from 'react-icons/fi';
 import { BsMoonStars } from 'react-icons/bs';
 import logoLight from '../assets/images/rclogov2.png';
 import logoDark from '../assets/images/rclogov2-dark.png';
 import Sidebar from './Sidebar';
+import { useTheme } from './ThemeContext';
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleTheme = () => {
-    const html = document.documentElement;
-    html.classList.toggle('dark');
-    setIsDark(html.classList.contains('dark'));
-  };
+  const { isDark, toggleTheme } = useTheme();
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   const navLinks = [
     { href: '/#about', label: 'About' },
@@ -56,14 +43,12 @@ export default function Header() {
         </button>
         {/* Logo centered on mobile, left on desktop */}
         <div className="flex-1 flex justify-center md:justify-start">
-          <a href="/" aria-label="Home">
-            <img
-              src={isDark ? logoDark : logoLight}
-              alt="RC Logo"
-              className="h-16 w-auto transition-all duration-300 max-w-[200px] min-w-0"
-              draggable="false"
-            />
-          </a>
+          <img
+            src={isDark ? logoDark : logoLight}
+            alt="RC Logo"
+            className="h-16 w-auto transition-all duration-300 max-w-[200px] min-w-0"
+            draggable="false"
+          />
         </div>
         {/* Nav links for desktop */}
         <nav className="hidden md:flex gap-8 text-lg font-semibold absolute left-1/2 -translate-x-1/2">

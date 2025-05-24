@@ -63,10 +63,10 @@ export default function Home() {
         </h1>
       </section>
       {/* Divider */}
-      <hr className="w-11/12 max-w-6xl mx-auto border-t-2 border-accent/60 my-0" />
+      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 border-accent/60 my-0" />
       {/* About & Projects Section */}
       <section id="about" className="py-20 bg-background/80">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-24 px-4 items-start">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32 px-6 items-start">
           {/* About (left) */}
           <div className="flex-1 flex flex-col items-center md:items-start md:justify-start justify-center min-h-[480px]">
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">About</h2>
@@ -139,7 +139,7 @@ export default function Home() {
           {/* Projects (right) */}
           <div className="flex-1 flex flex-col items-center md:items-start md:justify-start justify-center min-h-[480px]" id="projects">
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">Projects</h2>
-            <p className="mb-4 text-text/70 text-justify">Constantly learning frameworks & coding languages to build better things!</p>
+            <p className="mb-4 text-text/70 text-center flex-wrap">Constantly learning frameworks & coding languages to build better things!</p>
             <div className="grid gap-6 w-full">
               {subjects.map((subject, index) => (
                 <div className="rounded-xl border border-accent/30 bg-background/60 p-6 shadow-md flex flex-col gap-2" key={index}>
@@ -184,41 +184,41 @@ export default function Home() {
         </div>
       </section>
       {/* Divider */}
-      <hr className="w-11/12 max-w-6xl mx-auto border-t-2 border-accent/60 my-0" />
+      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 border-accent/60 my-0" />
       {/* Experiences Section as cards */}
-      <section id="experiences" className="min-h-[60vh] flex flex-col items-center justify-center px-4 py-16">
+      <section id="experiences" className="min-h-[60vh] flex flex-col items-center justify-center px-6 py-20">
         <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center w-full">Experiences</h2>
-        <div className="flex flex-wrap justify-center gap-8 w-full max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-10 w-full max-w-6xl mx-auto">
           {[
             {
-              icon: <FaChalkboardTeacher className="text-accent text-4xl mb-2" />,
+              icon: <FaChalkboardTeacher style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
               title: "Freelance Tutor",
               description: "Delivering tailored 1:1 tutoring in Computer Science and Mathematics for GCSE and A-Level students. Helped boost grades and student confidence through 100+ sessions."
             },
             {
-              icon: <FaUsers className="text-accent text-4xl mb-2" />,
+              icon: <FaUsers style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
               title: "Student Ambassador",
               description: "Representing the University of Surrey by supporting outreach events, mentoring students, and engaging with prospective applicants to promote inclusivity and access to higher education."
             },
             {
-              icon: <FaLaptopCode className="text-accent text-4xl mb-2" />,
-              title: "Software Engineering Intern – Fujitsu",
+              icon: <FaLaptopCode style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
+              title: "Software Engineering Intern @ Fujitsu",
               description: "Led a team to prototype an accessible social media app for elderly users, built AR/VR learning tools with Unity, and implemented AES encryption for data protection."
             },
             {
-              icon: <FaGamepad className="text-accent text-4xl mb-2" />,
-              title: "Code Tutor – Code Ninjas",
+              icon: <FaGamepad style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
+              title: "Code Tutor @ Code Ninjas",
               description: "Taught 50+ students aged 7–14 coding using Scratch, JavaScript, and HTML. Developed game-based modules and led live debugging, pair programming, and hands-on projects."
             },
             {
-              icon: <FaLightbulb className="text-accent text-4xl mb-2" />,
+              icon: <FaLightbulb style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
               title: "Young Enterprise Challenge Finalist",
               description: "Designed and pitched a VR smart-glasses prototype focused on enhancing daily life. Ranked 2nd nationally at Google HQ, demonstrating innovation, teamwork, and presentation skills."
             }
           ].map((exp, idx) => (
             <div key={idx} className="rounded-xl border border-accent/30 bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full">
               <div className="mb-3">{exp.icon}</div>
-              <h3 className="text-xl font-bold text-center mb-2">{exp.title}</h3>
+              <h3 className="text-xl font-bold text-center mb-2 flex flex-wrap">{exp.title}</h3>
               <p className="text-text/80 text-sm text-center">{exp.description}</p>
             </div>
           ))}
