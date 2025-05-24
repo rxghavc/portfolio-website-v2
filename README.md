@@ -8,11 +8,13 @@ This is my personal portfolio website, showcasing my projects, skills, and profe
 - Responsive design for all devices
 - Scroll-to-top button
 - Experience and project cards with accent icons
+- Contact form with email delivery via Vercel serverless function
 
 ## Technologies Used
 
 - **Frontend:** React, Tailwind CSS, JavaScript
 - **Icons:** React Icons
+- **Backend (Email):** Vercel Serverless Function (Nodemailer)
 - **Hosting:** Vercel
 
 ## File Structure
@@ -23,7 +25,8 @@ This is my personal portfolio website, showcasing my projects, skills, and profe
   - **main.jsx**: Entry point
   - **index.css**: Global styles and CSS variables
   - **components/**: Reusable React components (Header, Sidebar, ThemeContext, ScrollToTopButton)
-  - **pages/**: Main page content (Home)
+  - **pages/**: Main page content (Home, ContactSection)
+  - **api/**: Serverless function for contact form email
   - **assets/**: Images and downloadable files (CV, logos)
 
 ## Static Assets
