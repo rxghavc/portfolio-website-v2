@@ -1,9 +1,19 @@
 import React, { useRef } from 'react';
 import { FaFlask, FaRobot, FaCloudSun, FaRegUserCircle, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 
 export default function Home() {
   const headerRef = useRef(null);
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const subjects = [
     {
@@ -45,8 +55,9 @@ export default function Home() {
 
   return (
     <main>
+      <ScrollToTopButton show={showScrollTop} />
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center pt-[96px] md:pt-[112px] pb-8 md:pb-12 min-h-[60vh]" id="hero">
+      <section className="flex flex-col items-center justify-center pt-8 md:pt-8 pb-8 md:pb-8 min-h-[60vh]" id="hero">
         <h1 className="text-3xl md:text-4xl font-bold text-center max-w-3xl mx-auto">
           Hi, I'm <span style={{ color: 'var(--primary)', transition: 'color 0.3s' }} className="dark:text-[var(--accent)]">Raghav</span>, an aspiring software engineer.
         </h1>
