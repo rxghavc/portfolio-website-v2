@@ -18,19 +18,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Sidebar overlay */}
-      <div
-        className={`fixed inset-0 z-40 duration-300 bg-background ${sidebarOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-        onClick={() => setSidebarOpen(false)}
-        aria-hidden={!sidebarOpen}
-      />
-      {/* Sidebar */}
-      <Sidebar
-        isDark={isDark}
-        sidebarOpen={sidebarOpen}
-        setSidebarOpen={setSidebarOpen}
-        navLinks={navLinks}
-      />
       <header
         className="top-0 left-0 w-full z-50 px-4 py-2 bg-background/90 text-text flex items-center justify-between shadow-lg border-b md:px-12 md:py-6 relative"
         style={{ borderColor: 'var(--accent)' }}
@@ -87,6 +74,20 @@ export default function Header() {
           {isDark ? <FiSun className="text-2xl" /> : <BsMoonStars className="text-2xl" />}
         </button>
       </header>
+      {/* Sidebar overlay - ensure it is below the sidebar */}
+      <div
+        className={`fixed inset-0 z-60 duration-300 transition-colors ${sidebarOpen ? 'bg-black/60 pointer-events-auto' : 'bg-transparent pointer-events-none'}`}
+        onClick={() => setSidebarOpen(false)}
+        aria-hidden={!sidebarOpen}
+      />
+      {/* Sidebar - z-70 to be above overlay, add shadow-xl for more depth */}
+      <Sidebar
+        isDark={isDark}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+        navLinks={navLinks}
+        className="z-70 shadow-xl"
+      />
     </>
   );
 }
