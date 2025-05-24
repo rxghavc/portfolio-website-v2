@@ -49,7 +49,7 @@ export default function Home() {
       description:
         "A personal portfolio website showcasing my projects, skills, and contact information. It's also the website you're currently viewing!",
       repoLink: "https://github.com/rxghavc/portfolio-website",
-      liveLink: "https://raghavc-portfolio.vercel.app/",
+      liveLink: "https://raghavc-portfolio-new.vercel.app/",
     },
   ];
 
