@@ -31,7 +31,10 @@ export default function Header() {
         setSidebarOpen={setSidebarOpen}
         navLinks={navLinks}
       />
-      <header className="top-0 left-0 w-full z-50 px-4 py-2 bg-background/90 text-text flex items-center justify-between shadow-lg border-b border-accent md:px-12 md:py-6 relative">
+      <header
+        className="top-0 left-0 w-full z-50 px-4 py-2 bg-background/90 text-text flex items-center justify-between shadow-lg border-b md:px-12 md:py-6 relative"
+        style={{ borderColor: 'var(--accent)' }}
+      >
         {/* Menu icon for mobile */}
         <button
           className="no-style flex md:hidden p-3 rounded-full text-background hover:text-accent transition-colors text-3xl bg-transparent border-0 shadow-none focus:outline-none mr-2"

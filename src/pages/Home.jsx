@@ -63,7 +63,7 @@ export default function Home() {
         </h1>
       </section>
       {/* Divider */}
-      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 border-accent/60 my-0" />
+      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
       {/* About & Projects Section */}
       <section id="about" className="py-20 bg-background/80">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32 px-6 items-start">
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </section>
       {/* Divider */}
-      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 border-accent/60 my-0" />
+      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
       {/* Experiences Section as cards */}
       <section id="experiences" className="min-h-[60vh] flex flex-col items-center justify-center px-6 py-20">
         <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center w-full">Experiences</h2>
