@@ -72,6 +72,20 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className="nav-link relative py-2 transition-colors"
+              onClick={e => {
+                const id = link.href.replace('/#', '');
+                const section = document.getElementById(id);
+                const header = document.querySelector('header');
+                if (section && header) {
+                  e.preventDefault();
+                  const headerHeight = header.offsetHeight;
+                  const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+                  window.scrollTo({
+                    top: sectionTop - headerHeight,
+                    behavior: 'smooth',
+                  });
+                }
+              }}
             >
               {link.label}
             </a>

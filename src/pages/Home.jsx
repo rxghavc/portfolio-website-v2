@@ -5,29 +5,6 @@ import { RiTailwindCssFill } from 'react-icons/ri';
 export default function Home() {
   const headerRef = useRef(null);
 
-  // Smooth scroll handler for anchor links
-  React.useEffect(() => {
-    function handleAnchorClick(e) {
-      const anchor = e.target.closest('a[href^="/#"]');
-      if (anchor) {
-        const id = anchor.getAttribute('href').replace('/#', '');
-        const section = document.getElementById(id);
-        const header = document.querySelector('header');
-        if (section && header) {
-          e.preventDefault();
-          const headerHeight = header.offsetHeight;
-          const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({
-            top: sectionTop - headerHeight,
-            behavior: 'smooth',
-          });
-        }
-      }
-    }
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
-  }, []);
-
   const subjects = [
     {
       icon: <FaCloudSun className="text-accent text-3xl mb-2" />,
