@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { FaFlask, FaRobot, FaCloudSun, FaRegUserCircle, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb } from 'react-icons/fa';
+import { FaFlask, FaRobot, FaCloudSun, FaRegUserCircle, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 
@@ -127,6 +127,10 @@ export default function Home() {
                   <a className="profile-link-item relative flex items-center justify-center gap-2" href="mailto:rxghavcdev@gmail.com">
                     <span className="absolute left-4 flex items-center"><FaEnvelope className="text-xl" /></span>
                     <span className="w-full text-center">Email</span>
+                  </a>
+                  <a className="profile-link-item relative flex items-center justify-center gap-2" href="https://wa.me/+447933454109">
+                    <span className="absolute left-4 flex items-center"><FaWhatsapp className="text-xl" /></span>
+                    <span className="w-full text-center">WhatsApp</span>
                   </a>
                   <a className="profile-link-item relative flex items-center justify-center gap-2" href="/src/assets/Sai_Raghavan_Commandur_CV.pdf" download>
                     <span className="absolute left-4 flex items-center"><FaFilePdf className="text-xl" /></span>
