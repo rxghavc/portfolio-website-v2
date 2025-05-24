@@ -11,10 +11,10 @@ export default function Header() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   const navLinks = [
-    { href: '/#about-projects-divider', label: 'About' },
-    { href: '/#about-projects-divider', label: 'Projects' },
-    { href: '/#experiences-divider', label: 'Experiences' },
-    { href: '/#contact-divider', label: 'Contact Me'}
+    { href: '/#about', label: 'About', scrollTo: 'about-projects-divider' },
+    { href: '/#projects', label: 'Projects', scrollTo: 'about-projects-divider' },
+    { href: '/#experiences', label: 'Experiences', scrollTo: 'experiences-divider' },
+    { href: '/#contact', label: 'Contact', scrollTo: 'contact-divider' }
   ];
 
   return (
@@ -36,8 +36,15 @@ export default function Header() {
           <img
             src={isDark ? logoDark : logoLight}
             alt="RC Logo"
-            className="h-16 w-auto transition-all duration-300 max-w-[200px] min-w-0"
+            className="h-16 w-auto transition-all duration-300 max-w-[200px] min-w-0 cursor-pointer"
             draggable="false"
+            onClick={e => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              // Optionally update the URL to root
+              window.history.replaceState(null, '', '/');
+            }}
+            style={{ cursor: 'pointer' }}
           />
         </div>
         {/* Nav links for desktop */}
@@ -48,7 +55,11 @@ export default function Header() {
               href={link.href}
               className="nav-link relative py-2 transition-colors"
               onClick={e => {
-                const id = link.href.replace('/#', '');
+                // Responsive scroll logic
+                let id = link.scrollTo;
+                if (link.label === 'Projects' && window.innerWidth < 768) {
+                  id = 'projects';
+                }
                 const section = document.getElementById(id);
                 const header = document.querySelector('header');
                 if (section && header) {
