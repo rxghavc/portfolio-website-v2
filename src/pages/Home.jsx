@@ -95,7 +95,7 @@ export default function Home() {
       href: 'https://wa.me/+447933454109',
       label: 'WhatsApp',
       icon: <FaWhatsapp className="text-xl" />,
-      props: {},
+      props: { target: '_blank', rel: 'noopener noreferrer' },
     },
     {
       href: 'https://discord.com/users/377138490497826816',
