@@ -30,7 +30,9 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 bg-background/80">
-      <div className="w-full max-w-lg mx-auto bg-background/80 rounded-xl shadow-lg border p-8" style={{ borderColor: 'var(--accent)' }}>
+      <div className="w-full max-w-lg mx-auto bg-background/80 rounded-xl shadow-lg border p-8"
+        style={{ borderColor: 'var(--accent)', boxShadow: '0 4px 6px var(--primary)' }}
+      >
         <h2 className="text-3xl font-bold mb-6 text-center" style={{ color: 'var(--text)' }}>Contact Me</h2>
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4">
