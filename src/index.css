@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --text: #0d1b09;
+    --background: #f1faef;
+    --primary: #367425;
+    --secondary: #78b6d3;
+    --accent: #72cfa2;
+    --secondary-variant: #ffafcc;
+  }
+  .dark {
+    --text: #e9f6e5;
+    --background: #071005;
+    --primary: #9eda8d;
+    --secondary: #2b6985;
+    --accent: #308d60;
+    --secondary-variant: #f8468a;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease-in-out, background-color 0.3s;
+  right: auto;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.code-language-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.code-language-buttons .cl-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: var(--text);
+  background-color: var(--accent);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.code-language-buttons .cl-button:hover {
+  background-color: var(--accent);
+}
+
+body.dark-mode .code-language-buttons .cl-button {
+  background-color: var(--accent);
+  color: var(--text);
+}
+
+body.dark-mode .code-language-buttons .cl-button:hover {
+  background-color: var(--accent);
+}
+
+.repo-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--secondary);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.repo-button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-3px);
+}
+
+.repo-button:active {
+  transform: translateY(0);
+}
+
+body.dark-mode .repo-button {
+  background-color: var(--secondary);
+  color: #000000;
+}
+
+body.dark-mode .repo-button:hover {
+  background-color: var(--secondary);
+}
+
+.live-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.live-button:hover {
+  background-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.live-button:active {
+  transform: translateY(0);
+}
+
+body.dark-mode .live-button {
+  background-color: var(--accent);
+  color: #000000;
+}
+
+body.dark-mode .live-button:hover {
+  background-color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .code-language-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .cl-button {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    justify-content: center;
+  }
+}
+
+.profile-links-list {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.profile-links-list .profile-link-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: var(--text);
+  background-color: var(--secondary-variant);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-links-list .profile-link-item:hover {
+  background-color: var(--secondary-variant);
+}
+
+body.dark-mode .profile-links-list .profile-link-item {
+  background-color: var(--secondary-variant);
+  color: var(--text);
+}
+
+body.dark-mode .profile-links-list .profile-link-item:hover {
+  background-color: var(--secondary-variant);
+}
+
+@media (max-width: 600px) {
+  .profile-links-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .profile-link-item {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    justify-content: center;
+  }
+}

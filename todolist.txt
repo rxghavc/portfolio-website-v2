@@ -1,0 +1,4 @@
+update projects
+create experiences section
+create footer
+host to vercel
