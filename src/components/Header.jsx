@@ -11,17 +11,17 @@ export default function Header() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   const navLinks = [
-    { href: '/#about', label: 'About' },
-    { href: '/#projects', label: 'Projects' },
-    { href: '/#experiences', label: 'Experiences' },
-    { href: '/#contact', label: 'Contact Me'}
+    { href: '/#about-projects-divider', label: 'About' },
+    { href: '/#about-projects-divider', label: 'Projects' },
+    { href: '/#experiences-divider', label: 'Experiences' },
+    { href: '/#contact-divider', label: 'Contact Me'}
   ];
 
   return (
     <>
       <header
-        className="top-0 left-0 w-full z-50 px-4 py-2 bg-background/90 text-text flex items-center justify-between shadow-lg border-b md:px-12 md:py-6 relative"
-        style={{ borderColor: 'var(--accent)' }}
+        className="fixed top-0 left-0 w-full z-50 px-4 py-2 bg-background text-text flex items-center justify-between shadow-lg border-b md:px-12 md:py-6"
+        style={{ borderColor: 'var(--accent)', backgroundColor: 'var(--background)', color: 'var(--text)' }}
       >
         {/* Menu icon for mobile */}
         <button

@@ -58,7 +58,7 @@ export default function Home() {
     <main>
       <ScrollToTopButton show={showScrollTop} />
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center pt-8 md:pt-8 pb-8 md:pb-8 min-h-[60vh]" id="hero">
+      <section className="flex flex-col items-center justify-center pt-20 md:pt-28 pb-8 md:pb-8 min-h-[60vh]" id="hero">
         <h1 className="text-3xl md:text-4xl font-bold text-center max-w-3xl mx-auto">
           Hi, I'm <span style={{ color: 'var(--primary)', transition: 'color 0.3s' }} className="dark:text-[var(--accent)]">Raghav</span>, an aspiring software engineer.
         </h1>
@@ -66,7 +66,7 @@ export default function Home() {
       {/* Divider */}
       <hr className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
       {/* About & Projects Section */}
-      <section id="about" className="py-20 bg-background/80">
+      <section id="about-projects-divider" className="py-20 bg-background/80">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32 px-6 items-start">
           {/* About (left) */}
           <div className="flex-1 flex flex-col items-center md:items-start md:justify-start justify-center min-h-[480px]">
@@ -190,7 +190,7 @@ export default function Home() {
         </div>
       </section>
       {/* Divider */}
-      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
+      <hr id="experiences-divider" className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
       {/* Experiences Section as cards */}
       <section id="experiences" className="min-h-[60vh] flex flex-col items-center justify-center px-6 py-20">
         <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center w-full">Experiences</h2>
@@ -232,7 +232,7 @@ export default function Home() {
         </div>
       </section>
       {/* Divider */}
-      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
+      <hr id="contact-divider" className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
       {/* Contact Section below Experiences */}
       <ContactSection />
     </main>

@@ -31,7 +31,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-background/80">
       <div className="w-full max-w-lg mx-auto bg-background/80 rounded-xl shadow-lg border p-8" style={{ borderColor: 'var(--accent)' }}>
-        <h2 className="text-3xl font-bold mb-6 text-center" style={{ color: 'var(--primary)' }}>Contact Me</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center" style={{ color: 'var(--text)' }}>Contact Me</h2>
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <div className="flex flex-col md:flex-row gap-4">
             <input
@@ -41,8 +41,8 @@ export default function ContactSection() {
               value={form.firstName}
               onChange={handleChange}
               required
-              className="flex-1 px-4 py-3 rounded border border-accent/40 bg-background text-text focus:outline-none focus:border-accent transition-colors"
-              style={{ background: 'var(--background)', color: 'var(--text)' }}
+              className="flex-1 px-4 py-3 rounded border bg-background text-text focus:outline-none transition-colors"
+              style={{ background: 'var(--background)', color: 'var(--text)', borderColor: 'var(--accent)' }}
             />
             <input
               type="text"
@@ -51,8 +51,8 @@ export default function ContactSection() {
               value={form.lastName}
               onChange={handleChange}
               required
-              className="flex-1 px-4 py-3 rounded border border-accent/40 bg-background text-text focus:outline-none focus:border-accent transition-colors"
-              style={{ background: 'var(--background)', color: 'var(--text)' }}
+              className="flex-1 px-4 py-3 rounded border bg-background text-text focus:outline-none transition-colors"
+              style={{ background: 'var(--background)', color: 'var(--text)', borderColor: 'var(--accent)' }}
             />
           </div>
           <input
@@ -62,8 +62,8 @@ export default function ContactSection() {
             value={form.email}
             onChange={handleChange}
             required
-            className="px-4 py-3 rounded border border-accent/40 bg-background text-text focus:outline-none focus:border-accent transition-colors"
-            style={{ background: 'var(--background)', color: 'var(--text)' }}
+            className="px-4 py-3 rounded border bg-background text-text focus:outline-none transition-colors"
+            style={{ background: 'var(--background)', color: 'var(--text)', borderColor: 'var(--accent)' }}
           />
           <textarea
             name="message"
@@ -72,8 +72,8 @@ export default function ContactSection() {
             onChange={handleChange}
             required
             rows={5}
-            className="px-4 py-3 rounded border border-accent/40 bg-background text-text focus:outline-none focus:border-accent transition-colors resize-none"
-            style={{ background: 'var(--background)', color: 'var(--text)' }}
+            className="px-4 py-3 rounded border bg-background text-text focus:outline-none transition-colors resize-none"
+            style={{ background: 'var(--background)', color: 'var(--text)', borderColor: 'var(--accent)' }}
           />
           <button
             type="submit"
