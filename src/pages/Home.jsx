@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { FaFlask, FaRobot, FaCloudSun, FaRegUserCircle, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf } from 'react-icons/fa';
+import { FaFlask, FaRobot, FaCloudSun, FaRegUserCircle, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center pt-10 md:pt-0 pb-[32px] md:pb-[48px] min-h-[60vh]" id="hero">
+      <section className="flex flex-col items-center justify-center pt-[96px] md:pt-[112px] pb-8 md:pb-12 min-h-[60vh]" id="hero">
         <h1 className="text-3xl md:text-4xl font-bold text-center max-w-3xl mx-auto">
           Hi, I'm <span style={{ color: 'var(--primary)', transition: 'color 0.3s' }} className="dark:text-[var(--accent)]">Raghav</span>, an aspiring software engineer.
         </h1>
@@ -174,14 +174,44 @@ export default function Home() {
       </section>
       {/* Divider */}
       <hr className="w-11/12 max-w-6xl mx-auto border-t-2 border-accent/60 my-0" />
-      {/* Experiences Section */}
+      {/* Experiences Section as cards */}
       <section id="experiences" className="min-h-[60vh] flex flex-col items-center justify-center px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">Experiences</h2>
-        <ul className="max-w-2xl space-y-4 text-lg md:text-xl text-center text-text/80">
-          <li>Software Engineer Intern at ExampleCorp (2024)</li>
-          <li>Open Source Contributor - React Ecosystem</li>
-          <li>Freelance Web Developer</li>
-        </ul>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center w-full">Experiences</h2>
+        <div className="flex flex-wrap justify-center gap-8 w-full max-w-5xl mx-auto">
+          {[
+            {
+              icon: <FaChalkboardTeacher className="text-accent text-4xl mb-2" />,
+              title: "Freelance Tutor",
+              description: "Delivering tailored 1:1 tutoring in Computer Science and Mathematics for GCSE and A-Level students. Helped boost grades and student confidence through 100+ sessions."
+            },
+            {
+              icon: <FaUsers className="text-accent text-4xl mb-2" />,
+              title: "Student Ambassador",
+              description: "Representing the University of Surrey by supporting outreach events, mentoring students, and engaging with prospective applicants to promote inclusivity and access to higher education."
+            },
+            {
+              icon: <FaLaptopCode className="text-accent text-4xl mb-2" />,
+              title: "Software Engineering Intern – Fujitsu",
+              description: "Led a team to prototype an accessible social media app for elderly users, built AR/VR learning tools with Unity, and implemented AES encryption for data protection."
+            },
+            {
+              icon: <FaGamepad className="text-accent text-4xl mb-2" />,
+              title: "Code Tutor – Code Ninjas",
+              description: "Taught 50+ students aged 7–14 coding using Scratch, JavaScript, and HTML. Developed game-based modules and led live debugging, pair programming, and hands-on projects."
+            },
+            {
+              icon: <FaLightbulb className="text-accent text-4xl mb-2" />,
+              title: "Young Enterprise Challenge Finalist",
+              description: "Designed and pitched a VR smart-glasses prototype focused on enhancing daily life. Ranked 2nd nationally at Google HQ, demonstrating innovation, teamwork, and presentation skills."
+            }
+          ].map((exp, idx) => (
+            <div key={idx} className="rounded-xl border border-accent/30 bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full">
+              <div className="mb-3">{exp.icon}</div>
+              <h3 className="text-xl font-bold text-center mb-2">{exp.title}</h3>
+              <p className="text-text/80 text-sm text-center">{exp.description}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
