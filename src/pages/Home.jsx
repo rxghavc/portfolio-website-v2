@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { FaFlask, FaRobot, FaCloudSun, FaRegUserCircle, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp } from 'react-icons/fa';
 import { RiTailwindCssFill } from 'react-icons/ri';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import ContactSection from './Contact';
 
 export default function Home() {
   const headerRef = useRef(null);
@@ -146,7 +147,8 @@ export default function Home() {
             <p className="mb-4 text-text/70 text-center flex-wrap">Constantly learning frameworks & coding languages to build better things!</p>
             <div className="grid gap-6 w-full">
               {subjects.map((subject, index) => (
-                <div className="rounded-xl border border-accent/30 bg-background/60 p-6 shadow-md flex flex-col gap-2" key={index}>
+                <div className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col gap-2" key={index}
+                  style={{ borderColor: 'var(--accent)' }}>
                   <div className="flex items-center gap-3 mb-1 w-full justify-center">
                     <span className="flex-shrink-0 flex items-center justify-center mr-2">{subject.icon}</span>
                     <h3 className="text-xl font-bold flex-1 text-center" style={{flex: 'unset'}}>{subject.title}</h3>
@@ -220,7 +222,8 @@ export default function Home() {
               description: "Designed and pitched a VR smart-glasses prototype focused on enhancing daily life. Ranked 2nd nationally at Google HQ, demonstrating innovation, teamwork, and presentation skills."
             }
           ].map((exp, idx) => (
-            <div key={idx} className="rounded-xl border border-accent/30 bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full">
+            <div key={idx} className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full"
+              style={{ borderColor: 'var(--accent)' }}>
               <div className="mb-3">{exp.icon}</div>
               <h3 className="text-xl font-bold text-center mb-2 flex flex-wrap">{exp.title}</h3>
               <p className="text-text/80 text-sm text-center">{exp.description}</p>
@@ -228,6 +231,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+      {/* Divider */}
+      <hr className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
+      {/* Contact Section below Experiences */}
+      <ContactSection />
     </main>
   );
 }
