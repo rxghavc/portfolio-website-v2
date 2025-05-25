@@ -1,6 +1,10 @@
 import React, { useRef } from 'react';
-import { FaFlask, FaRobot, FaCloudSun, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp, FaDiscord, FaUtensils } from 'react-icons/fa';
-import { RiTailwindCssFill } from 'react-icons/ri';
+import {
+  FaFlask, FaRobot, FaCloudSun, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp, FaDiscord, FaUtensils, FaJava, FaGitAlt, FaUnity, FaCogs, FaCodeBranch, FaMobileAlt, FaBug, FaProjectDiagram, FaNode
+} from 'react-icons/fa';
+import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri';
+import { SiExpress, SiTailwindcss, SiPostman, SiVercel, SiMongodb } from 'react-icons/si';
+import { BiLogoVisualStudio } from "react-icons/bi";
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import ContactSection from './Contact';
 
@@ -55,23 +59,51 @@ export default function Home() {
     },
   ];
 
-  const techStack = [
-    { icon: <FaPython className="text-xl" />, label: 'Python' },
-    { icon: <FaJsSquare className="text-xl" />, label: 'JavaScript' },
-    { icon: <FaHtml5 className="text-xl" />, label: 'HTML' },
-    { icon: <FaCss3Alt className="text-xl" />, label: 'CSS' },
-    { icon: <FaReact className="text-xl" />, label: 'React' },
-    { icon: <RiTailwindCssFill className="text-xl" />, label: 'TailwindCSS' },
-    { icon: <FaDatabase className="text-xl" />, label: 'MySQL' },
-    { icon: <FaGithub className="text-xl" />, label: 'Version Control' },
-  ];
+  const techStack = {
+    'Programming Languages': [
+      { icon: <FaPython className="text-xl" />, label: 'Python', percent: 95 },
+      { icon: <FaJsSquare className="text-xl" />, label: 'JavaScript', percent: 85 },
+      { icon: <FaJava className="text-xl" />, label: 'Java', percent: 60 },
+      { icon: <FaHtml5 className="text-xl" />, label: 'HTML', percent: 90 },
+      { icon: <FaCss3Alt className="text-xl" />, label: 'CSS', percent: 85 },
+      { icon: <FaDatabase className="text-xl" />, label: 'MySQL', percent: 85 },
+    ],
+    'Frameworks & Libraries': [
+      { icon: <FaReact className="text-xl" />, label: 'React.js', percent: 70 },
+      { icon: <FaNode className="text-xl" />, label: 'Node.js', percent: 80 },
+      { icon: <SiExpress className="text-xl" />, label: 'Express.js', percent: 40 },
+      { icon: <SiTailwindcss className="text-xl" />, label: 'Tailwind CSS', percent: 80 },
+    ],
+    'Tools & Platforms': [
+      { icon: <FaGitAlt className="text-xl" />, label: 'Git', percent: 85 },
+      { icon: <FaGithub className="text-xl" />, label: 'GitHub', percent: 85 },
+      { icon: <BiLogoVisualStudio className="text-xl" />, label: 'Visual Studio Code', percent: 95 },
+      { icon: <FaUnity className="text-xl" />, label: 'Unity', percent: 60 },
+      { icon: <SiPostman className="text-xl" />, label: 'Postman', percent: 20 },
+      { icon: <SiVercel className="text-xl" />, label: 'Vercel', percent: 75 },
+      { icon: <SiMongodb className="text-xl" />, label: 'MongoDB Atlas', percent: 70 },
+    ],
+    'Technical Skills': [
+      { icon: <FaCogs className="text-xl" />, label: 'RESTful API Design', percent: 80 },
+      { icon: <FaDatabase className="text-xl" />, label: 'Database Management', percent: 75 },
+      { icon: <FaLaptopCode className="text-xl" />, label: 'Full-Stack Web Development', percent: 85 },
+      { icon: <FaCodeBranch className="text-xl" />, label: 'Version Control (Git)', percent: 85 },
+      { icon: <FaMobileAlt className="text-xl" />, label: 'Responsive Web Design', percent: 90 },
+      { icon: <FaBug className="text-xl" />, label: 'Debugging & Troubleshooting', percent: 80 },
+      { icon: <FaProjectDiagram className="text-xl" />, label: 'Agile Workflow Familiarity', percent: 60 },
+    ],
+  };
 
   const links = [
     {
       href: '/src/assets/Sai_Raghavan_Commandur_CV.pdf',
       label: 'CV',
       icon: <FaFilePdf className="text-xl" />,
-      props: { download: true },
+      props: {
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        // Remove download: true to allow in-browser PDF viewing
+      },
     },
     {
       href: 'https://www.linkedin.com/in/raghavcommandur/',
@@ -151,7 +183,7 @@ export default function Home() {
           <div className="flex-1 flex flex-col items-center md:items-start md:justify-start justify-center min-h-[480px]">
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">About</h2>
             <div className="w-full max-w-xl">
-              <p className="text-lg md:text-xl text-justify md:text-left text-text/80 px-2 md:px-0">
+              <p className="text-lg md:text-xl text-center text-text/80 px-2 md:px-0">
                 I'm a first-year B.Sc. Computer Science student at the University of Surrey, passionate about full-stack web development and software engineering. I enjoy building scalable, user-centered applications and exploring areas like system design, DevOps, and AI. My focus is on writing clean, maintainable code and creating solutions that are both impactful and accessible.
               </p>
               {/* Links Section */}
@@ -174,12 +206,51 @@ export default function Home() {
               {/* Tech Stack Section */}
               <div className="mt-8 w-full">
                 <h2 className="text-3xl font-semibold mb-4 text-center w-full">Tech Stack</h2>
-                <div className="code-language-buttons flex flex-col gap-2">
-                  {techStack.map((tech, idx) => (
-                    <button key={tech.label} className="cl-button relative flex items-center justify-center w-full">
-                      <span className="absolute left-4 flex items-center">{tech.icon}</span>
-                      <span className="w-full text-center">{tech.label}</span>
-                    </button>
+                <div className="flex flex-col gap-3">
+                  {Object.keys(techStack).map((section) => (
+                    <div key={section}>
+                      <button
+                        className="cl-button w-full flex items-center justify-between px-4 py-3 rounded border font-semibold text-lg bg-background text-text focus:outline-none transition-colors"
+                        style={{ borderColor: 'var(--accent)', color: 'var(--text)', background: 'var(--background)' }}
+                        onClick={() => setShowTechStack(showTechStack === section ? '' : section)}
+                        aria-expanded={showTechStack === section}
+                        type="button"
+                      >
+                        <span className="text-left">{section}</span>
+                        <span className="ml-auto pl-2 flex-shrink-0">
+                          {showTechStack === section ? <RiArrowDropUpLine className="text-2xl" style={{ color: 'var(--text)' }} /> : <RiArrowDropDownLine className="text-2xl" style={{ color: 'var(--text)' }} />}
+                        </span>
+                      </button>
+                      {showTechStack === section && (
+                        <div className="code-language-buttons flex flex-wrap gap-2 mt-2 justify-center">
+                          {techStack[section].map((tech) => (
+                            <button
+                              key={tech.label}
+                              className="cl-button profile-link-item relative flex items-center justify-center gap-2 w-full overflow-hidden"
+                              style={{
+                                position: 'relative',
+                                background: 'var(--background)', // Set button background to --background
+                              }}
+                            >
+                              {/* Fill bar */}
+                              <span
+                                className="absolute left-0 top-0 h-full"
+                                style={{
+                                  width: `${tech.percent}%`,
+                                  background: 'var(--accent)',
+                                  opacity: 1,
+                                  zIndex: 1,
+                                  borderRadius: 'inherit',
+                                  transition: 'width 0.4s cubic-bezier(0.4,0,0.2,1)',
+                                }}
+                              />
+                              <span className="absolute left-4 flex items-center" style={{ color: 'var(--text)', zIndex: 2 }}>{tech.icon}</span>
+                              <span className="w-full text-center" style={{ zIndex: 2 }}>{tech.label}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>
