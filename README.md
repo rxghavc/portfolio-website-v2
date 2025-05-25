@@ -1,6 +1,6 @@
 # Portfolio Website
 
-This is my personal portfolio website, showcasing my projects, skills, and professional journey. The website is built using modern web development technologies and is designed to be responsive and user-friendly.
+This is my personal portfolio website, showcasing my projects, skills, and professional journey. The website is built using modern web development technologies and is designed to be responsive, user-friendly, and easily maintainable.
 
 ## Features
 
@@ -12,14 +12,14 @@ This is my personal portfolio website, showcasing my projects, skills, and profe
 
 ## Technologies Used
 
-- **Frontend:** React, Tailwind CSS, JavaScript
+- **Frontend:** React, Vite, Tailwind CSS, JavaScript
 - **Icons:** React Icons
 - **Backend (Email):** Vercel Serverless Function (Nodemailer)
 - **Hosting:** Vercel
 
 ## File Structure
 
-- **public/**: Static assets (favicon, images, CV, etc.)
+- **public/**: Static assets (favicon, images, etc.)
 - **src/**: Main application code
   - **App.jsx**: Main application file
   - **main.jsx**: Entry point
@@ -35,7 +35,7 @@ This is my personal portfolio website, showcasing my projects, skills, and profe
   - `rclogov2.png`: Logo for light mode
   - `rclogov2-dark.png`: Logo for dark mode
 - **CV**: Located in `src/assets/`
-  - `Sai_Raghavan_Commandur_CV.pdf`: My downloadable CV linked in the website
+  - `Sai_Raghavan_Commandur_CV.pdf`: My CV, accessible at `/cv`
 
 ## Deployment
 
