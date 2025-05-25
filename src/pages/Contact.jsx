@@ -28,6 +28,13 @@ export default function ContactSection() {
     setSubmitting(false);
   };
 
+  React.useEffect(() => {
+    if (result) {
+      const timer = setTimeout(() => setResult(null), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [result]);
+
   return (
     <section id="contact" className="py-20 bg-background/80">
       <div className="w-full max-w-lg mx-auto bg-background/80 rounded-xl shadow-lg border p-8"
@@ -74,7 +81,7 @@ export default function ContactSection() {
             onChange={handleChange}
             required
             rows={5}
-            className="px-4 py-3 rounded border bg-background text-text focus:outline-none transition-colors resize-none"
+            className="px-4 py-3 rounded border focus:outline-none transition-colors resize-none"
             style={{ background: 'var(--background)', color: 'var(--text)', borderColor: 'var(--accent)' }}
           />
           <button
