@@ -183,7 +183,7 @@ export default function Home() {
           <div className="flex-1 flex flex-col items-center md:items-start md:justify-start justify-center min-h-[480px]">
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-center w-full">About</h2>
             <div className="w-full max-w-xl">
-              <p className="text-lg md:text-xl text-center text-text/80 px-2 md:px-0">
+              <p className="text-lg md:text-xl text-full text-text/80 px-2 md:px-0">
                 I'm a first-year B.Sc. Computer Science student at the University of Surrey, passionate about full-stack web development and software engineering. I enjoy building scalable, user-centered applications and exploring areas like system design, DevOps, and AI. My focus is on writing clean, maintainable code and creating solutions that are both impactful and accessible.
               </p>
               {/* Links Section */}
