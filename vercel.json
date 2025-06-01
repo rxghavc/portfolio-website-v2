@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/cv", "destination": "/Sai_Raghavan_Commandur_CV.pdf" }
+  ]
+}

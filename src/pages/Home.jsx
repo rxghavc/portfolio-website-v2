@@ -96,7 +96,7 @@ export default function Home() {
 
   const links = [
     {
-      href: '/Sai_Raghavan_Commandur_CV.pdf',
+      href: '/cv',
       label: 'CV',
       icon: <FaFilePdf className="text-xl" />,
       props: {
