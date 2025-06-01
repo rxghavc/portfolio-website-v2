@@ -96,13 +96,12 @@ export default function Home() {
 
   const links = [
     {
-      href: '/src/assets/Sai_Raghavan_Commandur_CV.pdf',
+      href: '/Sai_Raghavan_Commandur_CV.pdf',
       label: 'CV',
       icon: <FaFilePdf className="text-xl" />,
       props: {
         target: '_blank',
         rel: 'noopener noreferrer',
-        // Remove download: true to allow in-browser PDF viewing
       },
     },
     {
