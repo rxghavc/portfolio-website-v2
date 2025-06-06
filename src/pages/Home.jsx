@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import {
-  FaFlask, FaRobot, FaCloudSun, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp, FaDiscord, FaUtensils, FaJava, FaGitAlt, FaUnity, FaCogs, FaCodeBranch, FaMobileAlt, FaBug, FaProjectDiagram, FaNode
+  FaFlask, FaRobot, FaCloudSun, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp, FaDiscord, FaUtensils, FaJava, FaGitAlt, FaUnity, FaCogs, FaCodeBranch, FaMobileAlt, FaBug, FaProjectDiagram, FaNode,
+  FaPiggyBank
 } from 'react-icons/fa';
 import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri';
 import { SiExpress, SiTailwindcss, SiPostman, SiVercel, SiMongodb } from 'react-icons/si';
@@ -32,6 +33,15 @@ export default function Home() {
       liveLink: "https://raghavc-weatherproject.vercel.app",
     },
     {
+      icon: <FaUtensils className="text-accent text-3xl mb-2" />,
+      title: "Iyers - Catering Website",
+      technologies: ["React", "TailwindCSS", "JavaScript", "Vite", "Nodemailer", "Express.js"],
+      description:
+        "A modern, responsive website for a family-run South Indian catering business. Features a menu showcase, contact form, and dynamic gallery to help customers explore authentic cuisine and book catering services.",
+      repoLink: "https://github.com/rxghavc/IyersCatering",
+      liveLink: "",
+    },
+    {
       icon: <FaRobot className="text-accent text-3xl mb-2" />,
       title: "DeepSeek Clone",
       technologies: ["MERN Stack", "TailwindCSS", "Clerk", "DeepSeek API"],
@@ -41,19 +51,20 @@ export default function Home() {
       liveLink: "https://deep-seek-clone-three.vercel.app/",
     },
     {
+      icon: <FaPiggyBank className="text-accent text-3xl mb-2" />,
+      title: "Finance Tracker App",
+      technologies: ["React", "TailwindCSS", "JavaScript", "Vite", "Chart.js"],
+      description:
+        "A personal finance tracker that helps users manage expenses, visualize spending trends, and set savings goals. Features interactive charts, category breakdowns, and a responsive UI.",
+      repoLink: "",
+      liveLink: "",
+    },
+    {
       icon: <FaFlask className="text-accent text-3xl mb-2" />,
       title: "The STEM Tutor Network",
       technologies: ["HTML", "CSS", "JavaScript", "sqlite3"],
       description:
         "A web-based platform designed to connect students with certified tutors specializing in delivering GCSE/A-Level content.",
-      repoLink: "",
-    },
-    {
-      icon: <FaUtensils className="text-accent text-3xl mb-2" />,
-      title: "Iyers - Catering Website",
-      technologies: ["React", "TailwindCSS", "JavaScript", "Stripe API"],
-      description:
-        "A modern, responsive website for a family-run South Indian catering business. Features a menu showcase, contact form, and dynamic gallery to help customers explore authentic cuisine and book catering services.",
       repoLink: "",
       liveLink: "",
     },
