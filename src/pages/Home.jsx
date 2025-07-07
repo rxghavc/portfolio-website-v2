@@ -1,13 +1,18 @@
 import React, { useRef } from 'react';
 import {
   FaFlask, FaRobot, FaCloudSun, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp, FaDiscord, FaUtensils, FaJava, FaGitAlt, FaUnity, FaCogs, FaCodeBranch, FaMobileAlt, FaBug, FaProjectDiagram, FaNode,
-  FaPiggyBank
+  FaPiggyBank, FaLinux
 } from 'react-icons/fa';
 import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri';
 import { SiExpress, SiTailwindcss, SiPostman, SiVercel, SiMongodb } from 'react-icons/si';
 import { BiLogoVisualStudio } from "react-icons/bi";
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import ContactSection from './Contact';
+import { projects as projectsData } from '../data/projects';
+import { techStack as techStackData } from '../data/techStack';
+import { links as linksData } from '../data/links';
+import { experiences as experiencesData } from '../data/experiences';
+import { certifications as certificationsData } from '../data/certifications';
 
 export default function Home() {
   const headerRef = useRef(null);
@@ -22,165 +27,42 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const projects = [
-    {
-      icon: <FaCloudSun className="text-accent text-3xl mb-2" />,
-      title: "AeroCast Weather App",
-      technologies: ["React", "TailwindCSS", "TypeScript", "OpenWeatherMap API"],
-      description:
-        "A modern weather application providing real-time weather updates, forecasts, and location-based weather details.",
-      repoLink: "https://github.com/rxghavc/AeroCast-Weather-App",
-      liveLink: "https://raghavc-weatherproject.vercel.app",
-    },
-    {
-      icon: <FaUtensils className="text-accent text-3xl mb-2" />,
-      title: "Iyers - Catering Website",
-      technologies: ["React", "TailwindCSS", "JavaScript", "Vite", "Nodemailer", "Express.js"],
-      description:
-        "A modern, responsive website for a family-run South Indian catering business. Features a menu showcase, contact form, and dynamic gallery to help customers explore authentic cuisine and book catering services.",
-      repoLink: "https://github.com/rxghavc/IyersCatering",
-      liveLink: "",
-    },
-    {
-      icon: <FaRobot className="text-accent text-3xl mb-2" />,
-      title: "DeepSeek Clone",
-      technologies: ["MERN Stack", "TailwindCSS", "Clerk", "DeepSeek API"],
-      description:
-        "A full-stack MERN (MongoDB, Express, React, Node.js) project that provides a seamless user experience for managing and interacting with AI-powered chat functionalities",
-      repoLink: "https://github.com/rxghavc/DeepSeek-Clone",
-      liveLink: "https://deep-seek-clone-three.vercel.app/",
-    },
-    {
-      icon: <FaPiggyBank className="text-accent text-3xl mb-2" />,
-      title: "Finance Tracker App",
-      technologies: ["React", "TailwindCSS", "JavaScript", "Vite", "Chart.js"],
-      description:
-        "A personal finance tracker that helps users manage expenses, visualize spending trends, and set savings goals. Features interactive charts, category breakdowns, and a responsive UI.",
-      repoLink: "",
-      liveLink: "",
-    },
-    {
-      icon: <FaFlask className="text-accent text-3xl mb-2" />,
-      title: "The STEM Tutor Network",
-      technologies: ["HTML", "CSS", "JavaScript", "sqlite3"],
-      description:
-        "A web-based platform designed to connect students with certified tutors specializing in delivering GCSE/A-Level content.",
-      repoLink: "",
-      liveLink: "",
-    },
-  ];
-
-  const techStack = {
-    'Programming Languages': [
-      { icon: <FaPython className="text-xl" />, label: 'Python', percent: 95 },
-      { icon: <FaJsSquare className="text-xl" />, label: 'JavaScript', percent: 85 },
-      { icon: <FaJava className="text-xl" />, label: 'Java', percent: 60 },
-      { icon: <FaHtml5 className="text-xl" />, label: 'HTML', percent: 90 },
-      { icon: <FaCss3Alt className="text-xl" />, label: 'CSS', percent: 85 },
-      { icon: <FaDatabase className="text-xl" />, label: 'MySQL', percent: 85 },
-    ],
-    'Frameworks & Libraries': [
-      { icon: <FaReact className="text-xl" />, label: 'React.js', percent: 70 },
-      { icon: <FaNode className="text-xl" />, label: 'Node.js', percent: 80 },
-      { icon: <SiExpress className="text-xl" />, label: 'Express.js', percent: 40 },
-      { icon: <SiTailwindcss className="text-xl" />, label: 'Tailwind CSS', percent: 80 },
-    ],
-    'Tools & Platforms': [
-      { icon: <FaGitAlt className="text-xl" />, label: 'Git', percent: 85 },
-      { icon: <FaGithub className="text-xl" />, label: 'GitHub', percent: 85 },
-      { icon: <BiLogoVisualStudio className="text-xl" />, label: 'Visual Studio Code', percent: 95 },
-      { icon: <FaUnity className="text-xl" />, label: 'Unity', percent: 60 },
-      { icon: <SiPostman className="text-xl" />, label: 'Postman', percent: 20 },
-      { icon: <SiVercel className="text-xl" />, label: 'Vercel', percent: 75 },
-      { icon: <SiMongodb className="text-xl" />, label: 'MongoDB Atlas', percent: 70 },
-    ],
-    'Technical Skills': [
-      { icon: <FaCogs className="text-xl" />, label: 'RESTful API Design', percent: 80 },
-      { icon: <FaDatabase className="text-xl" />, label: 'Database Management', percent: 75 },
-      { icon: <FaLaptopCode className="text-xl" />, label: 'Full-Stack Web Development', percent: 85 },
-      { icon: <FaCodeBranch className="text-xl" />, label: 'Version Control (Git)', percent: 85 },
-      { icon: <FaMobileAlt className="text-xl" />, label: 'Responsive Web Design', percent: 90 },
-      { icon: <FaBug className="text-xl" />, label: 'Debugging & Troubleshooting', percent: 80 },
-      { icon: <FaProjectDiagram className="text-xl" />, label: 'Agile Workflow Familiarity', percent: 60 },
-    ],
+  const iconMap = {
+    FaFlask, FaRobot, FaCloudSun, FaPython, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare, FaGithub, FaLinkedin, FaEnvelope, FaReact, FaFilePdf, FaChalkboardTeacher, FaUsers, FaLaptopCode, FaGamepad, FaLightbulb, FaWhatsapp, FaDiscord, FaUtensils, FaJava, FaGitAlt, FaUnity, FaCogs, FaCodeBranch, FaMobileAlt, FaBug, FaProjectDiagram, FaNode, FaPiggyBank, FaLinux,
+    SiExpress, SiTailwindcss, SiPostman, SiVercel, SiMongodb, BiLogoVisualStudio
   };
 
-  const links = [
-    {
-      href: '/cv',
-      label: 'CV',
-      icon: <FaFilePdf className="text-xl" />,
-      props: {
-        target: '_blank',
-        rel: 'noopener noreferrer',
-      },
-    },
-    {
-      href: 'https://www.linkedin.com/in/raghavcommandur/',
-      label: 'LinkedIn',
-      icon: <FaLinkedin className="text-xl" />,
-      props: { target: '_blank', rel: 'noopener noreferrer' },
-    },
-    {
-      href: 'https://github.com/rxghavc',
-      label: 'GitHub',
-      icon: <FaGithub className="text-xl" />,
-      props: { target: '_blank', rel: 'noopener noreferrer' },
-    },
-    {
-      href: 'mailto:rxghavcdev@gmail.com',
-      label: 'Email',
-      icon: <FaEnvelope className="text-xl" />,
-      props: {},
-    },
-    {
-      href: 'https://wa.me/+447933454109',
-      label: 'WhatsApp',
-      icon: <FaWhatsapp className="text-xl" />,
-      props: { target: '_blank', rel: 'noopener noreferrer' },
-    },
-    {
-      href: 'https://discord.com/users/377138490497826816',
-      label: 'Discord',
-      icon: <FaDiscord className="text-xl" />,
-      props: { target: '_blank', rel: 'noopener noreferrer' },
+  function parseIcon(iconString) {
+    if (!iconString) return null;
+    const match = iconString.match(/<([A-Za-z0-9_]+)/);
+    const Comp = match ? iconMap[match[1]] : null;
+    if (!Comp) return null;
+    const classMatch = iconString.match(/className=\"([^\"]*)\"/);
+    const styleMatch = iconString.match(/style=\{([^}]*)\}/);
+    const className = classMatch ? classMatch[1] : undefined;
+    let style = undefined;
+    if (styleMatch) {
+      try {
+        style = eval('(' + styleMatch[1] + ')');
+      } catch {}
     }
-  ];
+    return <Comp className={className} style={style} />;
+  }
 
-  const experiences = [
-    {
-      icon: <FaLaptopCode style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
-      title: "Software Engineering Intern @ Fujitsu",
-      description: "Led a team to prototype an accessible social media app for elderly users, built AR/VR learning tools with Unity, and implemented AES encryption for data protection."
-    },
-    {
-      icon: <FaLightbulb style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
-      title: "Young Enterprise Challenge Finalist",
-      description: "Designed and pitched a VR smart-glasses prototype focused on enhancing daily life. Ranked 2nd nationally at Google HQ, demonstrating innovation, teamwork, and presentation skills."
-    },
-    {
-      icon: <FaGamepad style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
-      title: "Code Tutor @ Code Ninjas",
-      description: "Taught 50+ students aged 7–14 coding using Scratch, JavaScript, and HTML. Developed game-based modules and led live debugging, pair programming, and hands-on projects."
-    },
-    {
-      icon: <FaChalkboardTeacher style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
-      title: "Freelance Tutor",
-      description: "Delivering tailored 1:1 tutoring in Computer Science and Mathematics for GCSE and A-Level students. Helped boost grades and student confidence through 100+ sessions."
-    },
-    {
-      icon: <FaUsers style={{ color: 'var(--accent)' }} className="text-4xl mb-2" />,
-      title: "Student Ambassador",
-      description: "Representing the University of Surrey by supporting outreach events, mentoring students, and engaging with prospective applicants to promote inclusivity and access to higher education."
-    },
-  ];
+  const projects = projectsData.map(p => ({ ...p, icon: parseIcon(p.icon) }));
+  const techStack = Object.fromEntries(
+    Object.entries(techStackData).map(([section, arr]) => [section, arr.map(t => ({ ...t, icon: parseIcon(t.icon) }))])
+  );
+  const links = linksData.map(l => ({ ...l, icon: parseIcon(l.icon) }));
+  const experiences = experiencesData.map(e => ({ ...e, icon: parseIcon(e.icon) }));
+  const certifications = certificationsData.map(c => ({ ...c, icon: parseIcon(c.icon) }));
 
   return (
     <main>
       <ScrollToTopButton show={showScrollTop} />
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center pt-20 md:pt-28 pb-8 md:pb-8 min-h-[60vh]" id="hero">
-        <h1 className="text-3xl md:text-4xl font-bold text-center max-w-3xl mx-auto">
+      <section className="flex flex-col items-center justify-center pt-24 md:pt-28 pb-10 md:pb-8 min-h-[60vh]" id="hero">
+        <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-center max-w-3xl mx-auto leading-snug md:leading-tight px-2 md:px-0">
           Hi, I'm <span style={{ color: 'var(--primary)', transition: 'color 0.3s' }} className="dark:text-[var(--accent)]">Raghav</span>, an aspiring software engineer.
         </h1>
       </section>
@@ -239,21 +121,9 @@ export default function Home() {
                               className="cl-button profile-link-item relative flex items-center justify-center gap-2 w-full overflow-hidden"
                               style={{
                                 position: 'relative',
-                                background: 'var(--background)', // Set button background to --background
+                                background: 'var(--accent)',
                               }}
                             >
-                              {/* Fill bar */}
-                              <span
-                                className="absolute left-0 top-0 h-full"
-                                style={{
-                                  width: `${tech.percent}%`,
-                                  background: 'var(--accent)',
-                                  opacity: 1,
-                                  zIndex: 1,
-                                  borderRadius: 'inherit',
-                                  transition: 'width 0.4s cubic-bezier(0.4,0,0.2,1)',
-                                }}
-                              />
                               <span className="absolute left-4 flex items-center" style={{ color: 'var(--text)', zIndex: 2 }}>{tech.icon}</span>
                               <span className="w-full text-center" style={{ zIndex: 2 }}>{tech.label}</span>
                             </button>
@@ -353,6 +223,60 @@ export default function Home() {
               <div className="mb-3">{exp.icon}</div>
               <h3 className="text-xl font-bold text-center mb-2 flex flex-wrap">{exp.title}</h3>
               <p className="text-text/80 text-sm text-center">{exp.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* Divider */}
+      <hr id="certifications-divider" className="w-11/12 max-w-7xl mx-auto border-t-2 my-0" style={{ borderColor: 'var(--accent)' }} />
+      {/* Certifications Section as cards */}
+      <section id="certifications" className="min-h-[40vh] flex flex-col items-center justify-center px-6 py-16">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center w-full">Certifications</h2>
+        <div className="flex flex-wrap justify-center gap-10 w-full max-w-6xl mx-auto">
+          {certifications.map((cert, idx) => (
+            <div
+              key={idx}
+              className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full card-3d transition-transform duration-200"
+              style={{ borderColor: 'var(--accent)', boxShadow: '0 4px 6px var(--primary)' }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 12px var(--primary)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 6px var(--primary)';
+              }}
+            >
+              {cert.image && (
+                <img src={cert.image} alt={cert.title + ' badge'} className="mb-3 w-24 h-24 object-contain" />
+              )}
+              <div className="mb-3">{cert.icon}</div>
+              <h3 className="text-xl font-bold text-center mb-2 flex flex-wrap">{cert.title}</h3>
+              <p className="text-text/80 text-sm text-center mb-2">{cert.description}</p>
+              {cert.status ? (
+                <div className="w-full flex justify-center">
+                  <button
+                    className="repo-button underline font-semibold mt-2"
+                    disabled
+                    style={{
+                      background: 'var(--secondary-variant)',
+                      color: 'var(--text)',
+                      cursor: 'not-allowed',
+                    }}
+                  >
+                    {cert.status}
+                  </button>
+                </div>
+              ) : cert.link && (
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="repo-button underline text-accent font-semibold mt-2"
+                >
+                  View Credential
+                </a>
+              )}
             </div>
           ))}
         </div>

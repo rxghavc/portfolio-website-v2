@@ -14,6 +14,7 @@ export default function Header() {
     { href: '/#about', label: 'About', scrollTo: 'about-projects-divider' },
     { href: '/#projects', label: 'Projects', scrollTo: 'about-projects-divider' },
     { href: '/#experiences', label: 'Experiences', scrollTo: 'experiences-divider' },
+    { href: '/#certifications', label: 'Certifications', scrollTo: 'certifications-divider' },
     { href: '/#contact', label: 'Contact', scrollTo: 'contact-divider' }
   ];
 

@@ -1,0 +1,35 @@
+export const techStack = {
+  'Programming Languages': [
+    { icon: '<FaPython className="text-xl" />', label: 'Python' },
+    { icon: '<FaJsSquare className="text-xl" />', label: 'JavaScript' },
+    { icon: '<FaJava className="text-xl" />', label: 'Java' },
+    { icon: '<FaHtml5 className="text-xl" />', label: 'HTML' },
+    { icon: '<FaCss3Alt className="text-xl" />', label: 'CSS' },
+    { icon: '<FaDatabase className="text-xl" />', label: 'MySQL' },
+  ],
+  'Frameworks & Libraries': [
+    { icon: '<FaReact className="text-xl" />', label: 'React.js' },
+    { icon: '<FaNode className="text-xl" />', label: 'Node.js' },
+    { icon: '<SiExpress className="text-xl" />', label: 'Express.js' },
+    { icon: '<SiTailwindcss className="text-xl" />', label: 'Tailwind CSS' },
+  ],
+  'Tools & Platforms': [
+    { icon: '<FaGitAlt className="text-xl" />', label: 'Git' },
+    { icon: '<FaGithub className="text-xl" />', label: 'GitHub' },
+    { icon: '<BiLogoVisualStudio className="text-xl" />', label: 'Visual Studio Code' },
+    { icon: '<FaUnity className="text-xl" />', label: 'Unity' },
+    { icon: '<SiPostman className="text-xl" />', label: 'Postman' },
+    { icon: '<SiVercel className="text-xl" />', label: 'Vercel' },
+    { icon: '<SiMongodb className="text-xl" />', label: 'MongoDB Atlas' },
+    { icon: '<FaLinux className="text-xl" />', label: 'Linux (basic user-level)' },
+  ],
+  'Technical Skills': [
+    { icon: '<FaCogs className="text-xl" />', label: 'RESTful API Design' },
+    { icon: '<FaDatabase className="text-xl" />', label: 'Database Management' },
+    { icon: '<FaLaptopCode className="text-xl" />', label: 'Full-Stack Web Development' },
+    { icon: '<FaCodeBranch className="text-xl" />', label: 'Version Control (Git)' },
+    { icon: '<FaMobileAlt className="text-xl" />', label: 'Responsive Web Design' },
+    { icon: '<FaBug className="text-xl" />', label: 'Debugging & Troubleshooting' },
+    { icon: '<FaProjectDiagram className="text-xl" />', label: 'Agile Workflow Familiarity' },
+  ],
+}; 
