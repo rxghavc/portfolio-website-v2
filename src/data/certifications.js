@@ -10,9 +10,16 @@ export const certifications = [
   },
   {
     icon: '<FaCertificate style={{ color: "var(--accent)" }} className="text-4xl mb-2" />',
+    title: 'Heathrow Airport - IT Work Experience',
+    description: 'Credential ID: 2j8nk2s9327z',
+    link: 'https://space.springpod.com/certificate/2j8nk2s9327z/share',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgXTwRuJr_KGJM5HQN8k7c2zIu0IRDBubeGQ&s'
+  },
+  {
+    icon: '<FaCertificate style={{ color: "var(--accent)" }} className="text-4xl mb-2" />',
     title: 'Microsoft Azure Fundamentals (AZ-900)',
     description: 'Credential ID: Awaiting verification',
     image: azureBadge,
     status: 'Learning in progress...'
-  }
+  },
 ]; 
