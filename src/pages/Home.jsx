@@ -13,6 +13,83 @@ import { techStack as techStackData } from '../data/techStack';
 import { links as linksData } from '../data/links';
 import { experiences as experiencesData } from '../data/experiences';
 import { certifications as certificationsData } from '../data/certifications';
+import { motion } from 'framer-motion';
+
+// Typing Animation Component
+const TypingAnimation = ({ words, className = "" }) => {
+  const [currentWordIndex, setCurrentWordIndex] = React.useState(0);
+  const [currentText, setCurrentText] = React.useState("");
+  const [isDeleting, setIsDeleting] = React.useState(false);
+  const [isWaiting, setIsWaiting] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const ref = React.useRef(null);
+
+  // Intersection Observer to detect visibility
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is visible
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  React.useEffect(() => {
+    // Only run animation when visible
+    if (!isVisible) return;
+
+    const typeSpeed = isDeleting ? 50 : 100;
+    const deleteSpeed = 50;
+    const waitTime = 2000;
+
+    if (isWaiting) {
+      const timer = setTimeout(() => {
+        setIsWaiting(false);
+        setIsDeleting(true);
+      }, waitTime);
+      return () => clearTimeout(timer);
+    }
+
+    if (isDeleting) {
+      if (currentText === "") {
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        return;
+      }
+      const timer = setTimeout(() => {
+        setCurrentText(currentText.slice(0, -1));
+      }, deleteSpeed);
+      return () => clearTimeout(timer);
+    }
+
+    if (currentText === words[currentWordIndex]) {
+      setIsWaiting(true);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCurrentText(words[currentWordIndex].slice(0, currentText.length + 1));
+    }, typeSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, isWaiting, currentWordIndex, words, isVisible]);
+
+  return (
+    <span ref={ref} className={className}>
+      {currentText}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+};
 
 export default function Home() {
   const headerRef = useRef(null);
@@ -57,13 +134,62 @@ export default function Home() {
   const experiences = experiencesData.map(e => ({ ...e, icon: parseIcon(e.icon) }));
   const certifications = certificationsData.map(c => ({ ...c, icon: parseIcon(c.icon) }));
 
+  // Animation variants for better performance
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
+  const projectVariants = {
+    hidden: { opacity: 0, x: 40 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
+  const hoverVariants = {
+    hover: { 
+      y: -8,
+      transition: { duration: 0.2, ease: "easeOut" }
+    },
+    initial: { 
+      y: 0,
+      transition: { duration: 0.2, ease: "easeOut" }
+    }
+  };
+
+  const typingWords = [
+    "software engineer",
+    "full-stack developer",
+    "problem solver",
+    "lifelong learner",
+    "creative coder"
+  ];
+
   return (
     <main>
       <ScrollToTopButton show={showScrollTop} />
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center pt-24 md:pt-28 pb-10 md:pb-8 min-h-[60vh]" id="hero">
         <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-center max-w-3xl mx-auto leading-snug md:leading-tight px-2 md:px-0">
-          Hi, I'm <span style={{ color: 'var(--primary)', transition: 'color 0.3s' }} className="dark:text-[var(--accent)]">Raghav</span>, an aspiring software engineer.
+          Hi, I'm <span style={{ color: 'var(--primary)', transition: 'color 0.3s' }} className="dark:text-[var(--accent)]">Raghav</span>, an aspiring{" "}
+          <TypingAnimation 
+            words={typingWords} 
+            className="text-accent"
+            style={{ color: 'var(--accent)' }}
+          />
         </h1>
       </section>
       {/* Divider */}
@@ -142,8 +268,15 @@ export default function Home() {
             <p className="mb-4 text-text/70 text-center flex-wrap">Constantly learning frameworks & coding languages to build better things!</p>
             <div className="grid gap-6 w-full">
               {projects.map((project, index) => (
-                <div className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col gap-2" key={index}
-                  style={{ borderColor: 'var(--accent)' }}>
+                <motion.div
+                  key={index}
+                  variants={projectVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col gap-2"
+                  style={{ borderColor: 'var(--accent)' }}
+                >
                   <div className="flex items-center gap-3 mb-1 w-full justify-center">
                     <span className="flex-shrink-0 flex items-center justify-center mr-2">{project.icon}</span>
                     <h3 className="text-xl font-bold flex-1 text-center" style={{flex: 'unset'}}>{project.title}</h3>
@@ -194,7 +327,7 @@ export default function Home() {
                       </>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -207,23 +340,20 @@ export default function Home() {
         <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center w-full">Experiences</h2>
         <div className="flex flex-wrap justify-center gap-10 w-full max-w-6xl mx-auto">
           {experiences.map((exp, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full card-3d transition-transform duration-200"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+              viewport={{ once: true, margin: "-50px" }}
+              className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full"
               style={{ borderColor: 'var(--accent)', boxShadow: '0 4px 6px var(--primary)' }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.boxShadow = '0 8px 12px var(--primary)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 6px var(--primary)';
-              }}
             >
               <div className="mb-3">{exp.icon}</div>
               <h3 className="text-xl font-bold text-center mb-2 flex flex-wrap">{exp.title}</h3>
               <p className="text-text/80 text-sm text-center">{exp.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -234,18 +364,15 @@ export default function Home() {
         <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center w-full">Certifications</h2>
         <div className="flex flex-wrap justify-center gap-10 w-full max-w-6xl mx-auto">
           {certifications.map((cert, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full card-3d transition-transform duration-200"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+              viewport={{ once: true, margin: "-50px" }}
+              className="rounded-xl border bg-background/60 p-6 shadow-md flex flex-col items-center max-w-xs w-full"
               style={{ borderColor: 'var(--accent)', boxShadow: '0 4px 6px var(--primary)' }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.boxShadow = '0 8px 12px var(--primary)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 6px var(--primary)';
-              }}
             >
               {cert.image && (
                 <img src={cert.image} alt={cert.title + ' badge'} className="mb-3 w-24 h-24 object-contain" />
@@ -277,7 +404,7 @@ export default function Home() {
                   View Credential
                 </a>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
