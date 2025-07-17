@@ -21,7 +21,7 @@ export const links = [
     props: { target: '_blank', rel: 'noopener noreferrer' },
   },
   {
-    href: 'mailto:rxghavcdev@gmail.com',
+    href: 'mailto:r.commandur@gmail.com',
     label: 'Email',
     icon: '<FaEnvelope className="text-xl" />',
     props: {},
