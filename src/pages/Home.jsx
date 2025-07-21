@@ -297,7 +297,7 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="text-text/80 text-sm mb-2 text-justify">{project.description}</p>
-                  <div className="flex gap-3 flex-wrap justify-center md:justify-start">
+                  <div className="flex gap-3 flex-wrap justify-center">
                     {(!project.repoLink && !project.liveLink) ? (
                       <div className="w-full flex justify-center">
                         <button
