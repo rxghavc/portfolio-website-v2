@@ -15,7 +15,7 @@ export const projects = [
     description:
       "A modern, responsive website for a family-run South Indian catering business. Features a menu showcase, contact form, and dynamic gallery to help customers explore authentic cuisine and book catering services.",
     repoLink: "https://github.com/rxghavc/IyersCatering",
-    liveLink: "",
+    liveLink: "https://iyers-catering-website.vercel.app/",
   },
   {
     icon: '<FaRobot className="text-accent text-3xl mb-2" />',
