@@ -17,6 +17,13 @@ export const certifications = [
   },
   {
     icon: '<FaCertificate style={{ color: "var(--accent)" }} className="text-4xl mb-2" />',
+    title: 'IEUK - Software Engineering Work Experience',
+    description: 'Credential ID: cnzvgryzl4iett',
+    link: 'https://www.brightnetwork.co.uk/certificates/ieuk-2025-technology-engineeri_cnzvgryzl4iett/',
+    image: 'https://www.lboro.ac.uk/media/wwwlboroacuk/internal/content/images/news/main/internship-experience-uk.jpg'
+  },
+  {
+    icon: '<FaCertificate style={{ color: "var(--accent)" }} className="text-4xl mb-2" />',
     title: 'Microsoft Azure Fundamentals (AZ-900)',
     description: 'Credential ID: Awaiting verification',
     image: azureBadge,
